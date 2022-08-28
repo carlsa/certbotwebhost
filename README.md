@@ -31,6 +31,8 @@ Change the hash secret in the http01.php file.
 ## Docker
 Change the hash secret in `docker-compose.yml` to the same secret as the PHP file.
 
+Change the [container tag](https://hub.docker.com/r/certbot/certbot/tags) in `docker-compose.yml` to match your architecture, e.g. `certbot/certbot:arm32v6-latest` or `certbot/certbot:latest`. 
+
 Change the domain and other details in `docker_compose_files\data\cli.ini`.
 
 Start the docker compose file with `docker compose up`. 

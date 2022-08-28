@@ -3,7 +3,7 @@
     $CERTBOT_TOKEN = $_GET['CERTBOT_TOKEN'];
     $SIGNATURE = $_GET['SIGNATURE'];
 
-    $HASH_SECRET = "---------CHANGE_ME---------";
+    $HASH_SECRET = "------------CHANGE_ME------------";
     $HASH = hash('sha256', $CERTBOT_VALIDATION . $CERTBOT_TOKEN . $HASH_SECRET);
 
     if ($SIGNATURE === $HASH) {
@@ -18,8 +18,8 @@
         $myfile = fopen("$validation_file_path/$CERTBOT_TOKEN", "w");
         fwrite($myfile, $CERTBOT_VALIDATION);
         fclose($myfile);
+        print "OK";
     } else {
         print "Error. Missing or invalid parameters.";
     }
 ?>
-Install 

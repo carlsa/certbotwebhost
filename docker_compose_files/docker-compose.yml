@@ -5,7 +5,7 @@ services:
     image: certbot/certbot:arm32v6-latest
     network_mode: bridge
     environment:
-      - HASH_SECRET=---------CHANGE_ME---------
+      - HASH_SECRET=------------CHANGE_ME------------
     volumes:
       - ./data/certbot/:/etc/letsencrypt/:rw
       - ./data/certbot/log/:/var/log/letsencrypt/:rw
