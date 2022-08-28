@@ -1,0 +1,15 @@
+version: "3"
+
+services:
+  certbot:
+    image: certbot/certbot:arm32v6-latest
+    network_mode: bridge
+    environment:
+      - HASH_SECRET=---------CHANGE_ME---------
+    volumes:
+      - ./data/certbot/:/etc/letsencrypt/:rw
+      - ./data/certbot/log/:/var/log/letsencrypt/:rw
+    restart: "no"
+    entrypoint: "/bin/sh -c 'trap exit TERM; while :; do certbot certonly; sleep 12h & wait $${!}; done;'"
+
+
